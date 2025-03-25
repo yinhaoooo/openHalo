@@ -10,8 +10,12 @@ openHalo understands the SQL dialect of MySQL, and supports the same communicati
 #### Reduce migration time and risk
 openHalo supports commonly used MySQL dialect and semantics which reduces the amount of code changes related to database calls in an application. As a result, the amount of application code you need to re-write is minimized, reducing the risk of any new application errors.
 
+#### Obtain better performance
+With openHalo, you can obtain better performance without any extra efforts and fees! Especially for complex SQL statements!
+
 #### Migrate at your own pace
 With openHalo, you can commonly-used MySQL query tools, commands, and drivers. As a result, you can continue developing with the tools you are familiar with.
+
 
 ### How it works
 openHalo supports commonly used SQL dialect and communication protocol of MySQL. You can use openHalo as a MySQL and enabling your legacy applications to communicate with openHalo without extensive code re-writes but provides much more better performance than MySQL!
