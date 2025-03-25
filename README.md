@@ -23,4 +23,4 @@ openHalo supports commonly used SQL dialect and communication protocol of MySQL.
 
 openHalo is a trademark of Halo Tech Co.,Ltd.
 
-http://www.openhalo.org
+openHalo official website: https://www.openhalo.org
