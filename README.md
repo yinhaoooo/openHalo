@@ -19,7 +19,7 @@ With openHalo, you can commonly-used MySQL query tools, commands, and drivers. A
 
 ### How it works
 openHalo supports commonly used SQL dialect and communication protocol of MySQL. You can use openHalo as a MySQL and enabling your legacy applications to communicate with openHalo without extensive code re-writes but provides much more better performance than MySQL!
-![image](mysql.png)
+![image](how%20it%20works.png)
 
 openHalo is a trademark of Halo Tech Co.,Ltd.
 
