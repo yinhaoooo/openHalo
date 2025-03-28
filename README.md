@@ -1,4 +1,4 @@
-# openHalo
+# ![image](logo.png) openHalo
 openHalo provides the capability for PostgreSQL to work with applications written for MySQL but provides much more better performance than MySQL!
 
 Migrating from legacy MySQL databases can be time-consuming and resource-intensive. When migrating your databases, you can automate the migration of your database schema and data using HMT (an opensource migration tool also opened by HaloLab, https://github.com/HaloLab001/hmt-web), but there is often more work to do to migrate the application itself, including re-writing application code that interacts with the database.
@@ -21,6 +21,5 @@ With openHalo, you can commonly-used MySQL query tools, commands, and drivers. A
 openHalo supports commonly used SQL dialect and communication protocol of MySQL. You can use openHalo as a MySQL and enabling your legacy applications to communicate with openHalo without extensive code re-writes but provides much more better performance than MySQL!
 ![image](how%20it%20works.png)
 
-openHalo is a trademark of Halo Tech Co.,Ltd.
-
+openHalo is a trademark of Halo Tech Co.,Ltd. <br/>
 openHalo official website: https://www.openhalo.org
