@@ -21,5 +21,58 @@ With openHalo, you can commonly-used MySQL query tools, commands, and drivers. A
 openHalo supports commonly used SQL dialect and communication protocol of MySQL. You can use openHalo as a MySQL and enabling your legacy applications to communicate with openHalo without extensive code re-writes but provides much more better performance than MySQL!
 ![image](how%20it%20works.png)
 
+### Quick Tutorial
+#### Installation from Source Code
+- uuid is mandatory.
+
+```sh
+./configure --prefix=/home/halo/openhalo/1.0 --enable-debug --with-uuid=ossp CFLAGS=-O2
+make && make install
+cd contrib
+make && make install
+```
+
+#### Server Setup
+- Create User & User Group
+```sh
+groupadd –g 1000 halo
+useradd –u 1000 –g halo halo
+```
+
+- Setup Environment Variables
+```sh
+export HALO_HOME=/home/halo/openhalo/1.0
+export PGDATA=/home/halo/ohdata
+export PATH=$HALO_HOME/bin:$PATH
+export LD_LIBRARY_PATH=$HALO_HOME/lib
+export PGHOST=/var/run/openhalo
+```
+
+- Initialize Database
+```sh
+pg_ctl init -D $PGDATA
+```
+
+- Server Configuration
+```
+...
+mysql.listener_on = true                       # (enable MySQL listener; change requires restart)
+mysql.port = 3306                              # (port for MySQL; change requires restart)
+...
+```
+
+- Start & Initialize MySQL Environment
+```sql
+psql -p 5432
+
+# CREATE EXTENSION aux_mysql CASCADE;
+```
+
+- Query Database using mysql CLI
+```sh
+mysql -P 3306 -h 127.0.0.1 
+```
+![image](openhalo_q1.png)
+
 openHalo is a trademark of Halo Tech Co.,Ltd. <br/>
 openHalo official website: https://www.openhalo.org
