@@ -56,6 +56,10 @@ pg_ctl init -D $PGDATA
 - Server Configuration
 ```
 ...
+database_compat_mode = 'mysql'                 # database compat mode, values can be:
+                                               # mysql (mysql mode)
+                                               # postgresql (default)
+
 mysql.listener_on = true                       # (enable MySQL listener; change requires restart)
 mysql.port = 3306                              # (port for MySQL; change requires restart)
 ...
