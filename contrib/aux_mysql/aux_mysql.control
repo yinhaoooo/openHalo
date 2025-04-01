@@ -1,0 +1,4 @@
+comment = 'MySQL Supplementary Extension'
+default_version = '1.4'
+module_pathname = '$libdir/mysm'
+requires = '"uuid-ossp"'

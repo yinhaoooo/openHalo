@@ -1,0 +1,3 @@
+#!/bin/bash
+
+psql -v ENABLE_PL_BLOCK=on -v ENABLE_QQUOTE=on "$@"

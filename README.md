@@ -78,5 +78,6 @@ mysql -P 3306 -h 127.0.0.1
 ```
 ![image](openhalo_q1.png)
 
+Halo, HaloBase are trademarks of Halo Tech Co.,Ltd. <br/>
 openHalo is a trademark of Halo Tech Co.,Ltd. <br/>
 openHalo official website: https://www.openhalo.org
