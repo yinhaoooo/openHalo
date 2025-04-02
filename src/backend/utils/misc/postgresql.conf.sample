@@ -762,12 +762,12 @@ log_filename = 'haloserver-%Y-%m-%d_%H%M%S.log'	# log file name pattern,
 # VERSION AND PLATFORM COMPATIBILITY
 #------------------------------------------------------------------------------
 #database_compat_mode = 'mysql'	        # database compat mode, values can be:
-										# postgresql (default)
+					# postgresql (default)
                                         # mysql (MySQL mode)
-										# oracle (support in Enterprise Edition)
-										# db2 (support in Enterprise Edition)
-										# sqlserver (support in Enterprise Edition)
-										# sybase (support in Enterprise Edition)
+					# oracle (support in Enterprise Edition)
+					# db2 (support in Enterprise Edition)
+					# sqlserver (support in Enterprise Edition)
+					# sybase (support in Enterprise Edition)
 #standard_parserengine_auxiliary = 'on' # on, off, yes, no, true or false
 
 
