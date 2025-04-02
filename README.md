@@ -41,6 +41,9 @@ useradd –u 1000 –g halo halo
 
 - Setup Environment Variables
 ```sh
+sudo mkdir /var/run/openhalo
+sudo chown halo:halo /var/run/openhalo
+
 export HALO_HOME=/home/halo/openhalo/1.0
 export PGDATA=/home/halo/ohdata
 export PATH=$HALO_HOME/bin:$PATH
