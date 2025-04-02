@@ -1117,7 +1117,12 @@ PostmasterMain(int argc, char *argv[])
 		ListenSocket[i] = PGINVALID_SOCKET;
 
 	on_proc_exit(CloseServerPorts, 0);
-	on_proc_exit(CloseServerPorts2, 0);
+
+	/*
+	 * If MySQL listen enabled, we should also unlink MySQL socket files when quit
+	 */
+	if (halo_mysql_listener_on)
+		on_proc_exit(CloseServerPorts2, 0);
 	
 	/*
 	 * If enabled, start up syslogger collection subprocess
