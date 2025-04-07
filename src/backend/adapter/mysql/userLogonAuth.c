@@ -136,17 +136,17 @@ assembleHandshakePacketPayload(const char* haloMysVersion,
 
     if (strncmp(haloMysVersion, "5.7", 2) < 0)
     {
-        server_version = "5.6.40-log";
+        server_version = pstrdup(haloMysVersion);
         character_set = 45;
     }
     else if (strncmp(haloMysVersion, "8.0", 2) < 0)
     {
-        server_version = "5.7.32-log";
+        server_version = pstrdup(haloMysVersion);
         character_set = 45;
     }
     else 
     {
-        server_version = "8.0.30";
+        server_version = pstrdup(haloMysVersion);
         character_set = 255;
     }
     server_version_len = (int)strlen(server_version);
@@ -208,7 +208,7 @@ assembleHandshakePacketPayload(const char* haloMysVersion,
 
     payloadLen = payload_index;
     memset((payloadBuf + payloadLen), '\0', (payloadBufLen - payloadLen));
-
+    pfree(server_version);
     return payloadLen;
 }
 
