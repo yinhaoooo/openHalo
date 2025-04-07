@@ -135,13 +135,10 @@ assembleHandshakePacketPayload(const char* haloMysVersion,
     }
 
     if ((strncmp(haloMysVersion, "5.7", 3) < 0) || (strncmp(haloMysVersion, "8.0", 3) < 0))
-    {
         character_set = 45;
-    }
     else 
-    {
         character_set = 255;
-    }
+
     server_version = pstrdup(haloMysVersion);
     server_version_len = (int)strlen(server_version);
     auth_plugin_data_part2_len = 13;
