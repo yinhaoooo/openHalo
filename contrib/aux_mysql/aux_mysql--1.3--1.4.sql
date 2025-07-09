@@ -4391,45 +4391,7 @@ BEGIN
                 end
                 from pg_catalog.pg_type ty
                 where att.atttypid = ty.oid)::varchar(64) as Type,
-            (select
-                case
-                    when ty.typname='tinyint' then NULL
-                    when ty.typname='tinyint signed' then NULL
-                    when ty.typname='tinyint unsigned' then NULL
-                    when ty.typname='smallint' then NULL
-                    when ty.typname='smallint signed' then NULL
-                    when ty.typname='smallint unsigned' then NULL
-                    when ty.typname='mediumint' then NULL
-                    when ty.typname='mediumint signed' then NULL
-                    when ty.typname='mediumint unsigned' then NULL
-                    when ty.typname='int4' then NULL
-                    when ty.typname='int signed' then NULL
-                    when ty.typname='int unsigned' then NULL
-                    when ty.typname='int8' then NULL
-                    when ty.typname='bigint signed' then NULL
-                    when ty.typname='bigint unsigned' then NULL
-                    when ty.typname='date' then NULL
-                    when ty.typname='time' then NULL
-                    when ty.typname='datetime' then NULL
-                    when ty.typname='timestamp' then NULL
-                    when ty.typname='bit' then NULL
-                    when ty.typname='varbit' then NULL
-                    when ty.typname='binary' then NULL
-                    when ty.typname='varbinary' then NULL
-                    when ty.typname='tinyblob' then NULL
-                    when ty.typname='blob' then NULL
-                    when ty.typname='mediumblob' then NULL
-                    when ty.typname='longblob' then NULL
-                    when mysql.left(ty.typname, 5)='float' then NULL
-                    when ty.typname='double' then NULL
-                    when ty.typname='decimal' then NULL
-                    when ty.typname='numeric' then NULL
-                    when ty.typname='real' then NULL
-                    when ty.typname='year_' then NULL
-                    else 'utf8mb4_0900_ai_ci'
-                end
-                from pg_catalog.pg_type ty
-                where att.atttypid = ty.oid)::varchar(256) as Collation,
+            (select colla.collname from pg_catalog.pg_collation colla where colla.oid = att.attcollation)::varchar(256) as Collation,
             (case when att.attnotnull then 'NO' else 'YES' end)::varchar(8) as Null,
             (mysql.get_column_key(att.attrelid, att.attname))::varchar(256) as Key,
             (mysql.amend_def_val(pg_get_expr((select ad.adbin from pg_catalog.pg_attrdef ad where ad.adnum = att.attnum and ad.adrelid = att.attrelid), tabOid)))::text as Default,
@@ -4866,8 +4828,8 @@ BEGIN
                 end if;
             end if;
 
-            if (0 < length(records.column_collation)) then
-                ret := pg_catalog.concat(ret, ' ', records.column_collation);
+            if (records.column_collation is not null) then
+                ret := pg_catalog.concat(ret, ' COLLATE ', records.column_collation);
             end if;
 
             if (records.column_comment is not null) then
